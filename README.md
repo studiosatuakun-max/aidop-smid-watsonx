@@ -1,42 +1,46 @@
 🚀 AI-DOP & SMID – Seangkatan.id
-(IBM watsonx Agentic AI Hackathon Project)
+IBM watsonx Agentic AI Hackathon Project (2025)
 
-AI-DOP (AI Deep Observation Pipeline) is an agentic AI workflow built with IBM watsonx Orchestrate to power the student wellbeing intelligence behind Seangkatan.id, a social edutech platform for Indonesian middle & high school students.
-The system transforms raw student text from multiple social-learning channels into actionable insights—supporting teachers, parents, and counselors in early detection of bullying, emotional distress, strengths, and talent signals.
+AI-DOP (AI Deep Observation Pipeline) is an agentic AI workflow built using IBM watsonx Orchestrate to power student wellbeing intelligence for Seangkatan.id, a social edutech platform for Indonesian middle & high school students.
+
+This system transforms raw student text from social-learning channels into actionable, structured insights—supporting teachers, counselors, and parents in early detection of bullying, emotional distress, strengths, and talent indicators.
 
 🌐 About Seangkatan.id
 
-Seangkatan.id is a social edutech platform designed to help students express themselves, collaborate, and build healthy digital school communities. The platform includes:
-ConfessWall — anonymous emotional expressions
-RoomChat — class and group discussions
-Interactive Quizzes — self-reflection & micro-assessments
-Digital Mading — student creativity & announcements
-Virtual Homeroom Teacher (Wali Kelas Virtual) — an evolving AI mentor that learns from student interactions
-These channels generate rich natural language data that feeds the AI-DOP & SMID analysis pipeline.
+Seangkatan.id is a social edutech platform designed to build healthy digital school communities.
+It includes multiple student-generated data channels:
+
+ConfessWall — anonymous emotional expression
+RoomChat — classroom & group discussions
+Interactive Quizzes — self-reflection & micro-assessment
+Digital Mading — student creativity board
+Virtual Homeroom Teacher (Wali Kelas Virtual) — an evolving AI mentor
+These channels produce rich natural-language data that feed directly into the AI-DOP & SMID analysis pipeline.
 
 🧠 What the AI-DOP & SMID Agent Does
-
-The agent processes student text and produces structured wellbeing intelligence via:
+The agent produces a structured 4-section wellbeing intelligence report for every input:
 1. NLP Analysis
 Sentiment
 Emotion
 Toxicity
+Keyword & topic extraction
 
-Keywords & themes
-3. 3C Strengths (Triangulation Model)
+2. 3C Strength Model (Triangulation)
 C1 – Cognition
 C2 – Character
 C3 – Competence
+Flags for psychological or contextual signals
 
-3. SMID Early-Warning Signals
-SMID = Student Measurement Impact Dashboard, which includes:
-Bullying risk score (LOW / MEDIUM / HIGH)
+3. SMID Early-Warning Indicators
+SMID = Student Measurement Impact Dashboard
+Includes:
+Bullying risk score (Low / Medium / High)
 Emotional distress indicators
 Safety & crisis cues
-Peer conflict and social pressure signals
+Peer conflict & avoidance patterns
 
-4. Talent Indicators
-Identified from behavioral cues in text:
+4. Talent Signals
+Detected from linguistic patterns:
 Leadership
 Communication
 Empathy
@@ -45,101 +49,120 @@ Creativity
 Teamwork
 
 5. Career Interest Cues
-Extracted themes (education, arts, social, STEM, etc.)
-
-6. Key Themes
-Summaries of the underlying meaning of the message.
-All results follow a consistent 4-section structured output:
-NLP Analysis
-3C Insights
-SMID Early Warning Indicators
-Key Themes
+Themes extracted from text (education, social, STEM, arts, etc.)
 
 🔥 Why It Matters
-
 AI-DOP & SMID enables:
 Early detection of bullying & emotional distress
-Data-driven insights for teachers and parents
-Long-term student wellbeing monitoring
-Class-wide and individual-level analytics
+Data-driven insights for teachers & parents
+Longitudinal wellbeing tracking
+Class-wide & individual-level analytics
 AI-powered support for the Virtual Homeroom Teacher
-Foundation for a scalable, school-wide wellbeing dashboard
-It transforms raw conversations into actionable guidance for real education stakeholders.
+Foundation for a scalable, nationwide wellbeing dashboard
+It transforms everyday student conversations into actionable wellbeing intelligence.
 
-🏆 Real-World Traction (Before the Hackathon)
-Seangkatan.id has already received recognition and validation:
-✔ Selected for 1:1 Investor Matchmaking – TIACon 2025
-Direct invitation to pitch in private investor sessions.
+🏆 Real-World Traction (Pre-Hackathon)
+Seangkatan.id already has meaningful recognition:
 
-✔ Recognized in the 11th NextDev Scouting
-Chosen among promising early-stage digital startups in Indonesia.
-
-✔ Signed LOI with a School (300 students) for pilot deployment
-Demonstrates strong real-world demand for wellbeing analytics.
-
-These achievements validate the relevance and market need for AI-DOP & SMID.
+✔ 1:1 Investor Matchmaking – TIACon 2025
+Invited to private investor meetings.
+✔ 11th NextDev Scouting
+Selected as a promising early-stage Indonesian edutech startup.
+✔ Signed LOI with a school (300 students)
+Pilot implementation agreement underway.
+These validate both market demand and real-world relevance of AI-DOP & SMID.
 
 🧩 Architecture Overview
+This MVP runs entirely inside IBM watsonx Orchestrate:
+Custom AI Agent: AI-DOP & SMID Agent
+Custom Tool: run_ai_dop_analysis
+Behavior rules: safety, override logic, stateless patterns
+Agent reasoning: auto-detect missing inputs
+LLM Model: llama-3-2-90b-vision-instruct (Granite-compatible)
+No backend required during the hackathon
+Optional: Local Streamlit UI to visualize how the results will appear on Seangkatan.id
 
-This MVP is built entirely inside IBM watsonx Orchestrate using:
-Custom AI agent: AI-DOP & SMID
-Custom tool: run_ai_dop_analysis
-Behavior rules for safety, consistency, and structured outputs
-Agentic reasoning to determine required inputs
-LLM model: llama-3-2-90b-vision-instruct (Granite-compatible)
-Optional: Streamlit visualization for UI demos (local-only)
-No backend or infrastructure is required for the hackathon version.
+⚙️ How It Works (End-to-End Flow)
+Student → Seangkatan.id Channels → AI-DOP & SMID Agent → Tool → SMID Report → Teachers / Parents / Dashboar
 
-🖥 Optional Prototype UI (Local Streamlit Demo)
-To visualize future integration with Seangkatan.id, we built an optional Streamlit UI prototype.
+Step-by-step:
 
-Features:
-AI-DOP Text Analyzer
-NLP, 3C, SMID breakdown
-Risk classification
-SMID Dashboard view (aggregated history per student)
-Alerts for medium/high risk events
-Simulation of teacher-facing and parent-facing insights
-This UI is not required for the hackathon, but helps demonstrate future product direction.
-Screenshots provided in the repo.
+A student writes a message (ConfessWall, RoomChat, quizzes, etc.).
+The message is sent to the AI-DOP & SMID Agent.
+The agent triggers the tool run_ai_dop_analysis.
+The backend logic returns NLP → 3C → SMID → Talent indicators.
+The agent applies safety + override behavior.
+The final structured SMID Report is produced.
+(Future) This report is consumed by the Virtual Homeroom Teacher and teacher dashboards.
 
-🚀 Demo Instructions (For Hackathon Judges)
-Official Demo (watsonx Orchestrate):
-https://us-south.watson-orchestrate.cloud.ibm.com/chat
+🔗 Future Integration via IBM watsonx Orchestrate API
+After the hackathon, Seangkatan.id will connect to this agent programmatically:
+Frontend: Seangkatan.id platform
+Backend: FastAPI
+Orchestrate API: Triggers agent workflow
+Analysis: SMID report returned to platform
+Dashboard: Real-time wellbeing monitoring
+This enables district-wide scalability across Indonesian schools.
 
+🖥 Optional UI Prototype (Streamlit Demo)
+To demonstrate future integration with the Seangkatan.id ecosystem, we built a local-only Streamlit demo that includes:
+AI-DOP Text Analyzer (NLP + 3C + SMID)
+Risk assessment page
+SMID Dashboard (longitudinal data mock)
+Teacher alert console
+This is optional and not required by the hackathon, but helps judges visualize how schools will use the system.
+Run locally:
+pip install -r requirements.txt
+streamlit run streamlit_app.py
 
-⚠ Important Note
-Because this is a hackathon-managed IBM Cloud environment, the chat URL does not contain an agent ID.
+🚀 Demo Instructions (For Judges)
+Main Demo (Required)
 
-To access the project:
-Log in using your IBM Cloud Hackathon account
+🔗 https://us-south.watson-orchestrate.cloud.ibm.com/chat
 
-Open Agents
-Select AI-DOP & SMID Agent
-Start a conversation and paste any student text
+Because this is a managed IBM Cloud environment, the link does not contain an agentId.
+Judges will log in using the provided IBM Cloud credentials and select:
+AI-DOP & SMID Agent → Start Chat
 
-🧪 Sample Messages to Test
-🔵 Positive
+Paste any student message to get a full SMID Report.
+
+🧪 Sample Prompts (Copy & Paste)
+Positive
+
 "I enjoy organizing study groups and explaining lessons to my classmates."
 
-🔴 Bullying / Distress
+Bullying / Distress
+
 "I'm tired of being mocked every day. It makes me scared to go to school."
 
-🟡 Neutral Reflection
+Neutral Reflection
+
 "I like helping my friends, but sometimes I doubt myself when I make mistakes."
 
+Anxiety
 
-The agent will return the full NLP → 3C → SMID → Key Themes structure.
+"I don’t know why, but lately I feel nervous talking to people, even though nothing bad ever happened."
 
-📊 Future Roadmap
-After the hackathon, AI-DOP & SMID will evolve into:
-Backend integration (FastAPI + watsonx.ai)
-Real-time multi-student dashboard
-Automated alerts for teachers/parents
+Each message will return the full:
+NLP → 3C → SMID → Key Themes structure.
+
+📊 Limitations & Next Steps
+Current Limitations (MVP)
+Single-message analysis only
+Risk calibration not yet validated with real school counselors
+No multi-student aggregation in production yet
+No live API integration (hackathon environment restriction)
+
+Next Steps
+Full API pipeline (FastAPI → Orchestrate → SMID)
+Population-level dashboard
 Longitudinal wellbeing timeline
-Multi-channel observation (text, quiz metadata, interaction patterns)
+Automated alerts for teachers & parents
+Integration with the Virtual Homeroom Teacher
 
-Integration with the Virtual Homeroom Teacher agent
+Multi-channel multimodal analysis (text + behavioral metadata)
 
 📘 License
-This project is developed exclusively for the IBM watsonx Agentic AI Hackathon.
+
+This project is developed exclusively for the
+IBM watsonx Agentic AI Hackathon (Nov 2025).
