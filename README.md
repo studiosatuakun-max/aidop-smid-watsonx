@@ -1,4 +1,5 @@
 🚀 AI-DOP & SMID – Seangkatan.id
+
 IBM watsonx Agentic AI Hackathon Project (2025)
 
 AI-DOP (AI Deep Observation Pipeline) is an agentic AI workflow built using IBM watsonx Orchestrate to power student wellbeing intelligence for Seangkatan.id, a social edutech platform for Indonesian middle & high school students.
@@ -60,6 +61,7 @@ Seangkatan.id has already received validation:
 These milestones validate the demand for AI-powered wellbeing analytics.
 
 🧩 Architecture Overview
+
 This MVP is built entirely inside IBM watsonx Orchestrate, using:
 Custom Agent: AI-DOP & SMID Agent
 Custom Tool: run_ai_dop_analysis
@@ -79,6 +81,7 @@ Alerts for medium/high-risk events
 This is not required by the hackathon but demonstrates the product direction.
 
 🚀 Demo Instructions (For Hackathon Judges)
+
 Official Demo (watsonx Orchestrate)
 
 🔗 https://us-south.watson-orchestrate.cloud.ibm.com/chat
@@ -92,6 +95,7 @@ Select AI-DOP & SMID Agent
 Paste any student text and run the analysis
 
 🧪 Sample Messages to Test
+
 🔵 Positive
 “I enjoy organizing study groups and explaining lessons to my classmates.”
 
